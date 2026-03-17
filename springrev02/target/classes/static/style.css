@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400&display=swap');
+
+/* ── ROOT VARIABLES ── */
+:root {
+  --soft-purple:  #7c5cbf;
+  --lavender:     #c9b8f0;
+  --pastel-pink:  #f7c5d5;
+  --dark:         #1e1a2e;
+  --cream:        #fdf6ff;
+  --glass-bg:     rgba(255, 240, 255, 0.18);
+  --glass-border: rgba(180, 140, 230, 0.38);
+}
+
+/* ── RESET ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── BODY — cats playing background ── */
+body {
+  min-height: 100vh;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: var(--dark);
+
+  /* Unsplash free-to-use cats playing photo */
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(30, 26, 46, 0.50) 0%,
+      rgba(124, 92, 191, 0.22) 50%,
+      rgba(30, 26, 46, 0.58) 100%
+    ),
+    url('https://images.unsplash.com/photo-1574158622682-e40e69881006?w=1600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* ── FORM CARD — frosted glass ── */
+form {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 3rem 2.8rem 2.6rem;
+  width: min(420px, 100%);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.40),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30);
+  animation: floatIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+/* ── HEADING ── */
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--cream);
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+}
+
+h2::before { content: '🐱 '; }
+h2::after  { content: ' 🐾'; }
+
+/* ── LABELS ── */
+label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--lavender);
+  margin-bottom: 0.45rem;
+  margin-top: 1.2rem;
+}
+
+/* ── INPUTS ── */
+input[type="text"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1.5px solid rgba(180, 140, 230, 0.45);
+  border-radius: 12px;
+  color: var(--cream);
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+}
+
+input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+input[type="text"]:focus {
+  border-color: var(--lavender);
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 0 0 3px rgba(180, 140, 230, 0.25);
+}
+
+/* ── SUBMIT BUTTON ── */
+input[type="submit"] {
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0.85rem;
+  background: linear-gradient(135deg, var(--soft-purple), #a07de0);
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(124, 92, 191, 0.50);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+input[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(124, 92, 191, 0.65);
+  background: linear-gradient(135deg, #9068d4, #c09ef5);
+}
+
+input[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 12px rgba(124, 92, 191, 0.40);
+}
+
+/* ── BR SPACING FIX ── */
+br { display: none; }
